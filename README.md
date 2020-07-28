@@ -1,3 +1,4 @@
+[![Build Status](https://jenkins.wnuke.dev/job/fabric-client/job/kotlin/badge/icon)](https://jenkins.wnuke.dev/job/fabric-client/job/kotlin/)
 # ToastClient
  
  - Minecraft Utility mod using Fabric.
