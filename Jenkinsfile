@@ -1,7 +1,10 @@
-node {
-  withGradle {
-    ls
-    sh './gradlew --scan -s'
-    sh './gradlew build'
+stage 'build'
+node{
+  if(isUnix()){
+  sh 'gradle build --info'
+
+  }
+  else{
+    bat 'gradle build --info'
   }
 }
