@@ -1,9 +1,10 @@
-node {
-  stage('Gradle Build') {
-    if (isUnix()) {
-        sh './gradlew clean build'
-    } else {
-        bat 'gradlew.bat clean build'
+pipeline {
+    agent { docker 'gradle:latest' } 
+    stages {
+        stage('Gradle Build') {
+            steps {
+                sh 'gradle build'
+            }
+        }
     }
-  }
 }
