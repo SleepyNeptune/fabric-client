@@ -1,10 +1,21 @@
 {
   "required": true,
+  "package": "toast.client.mixin",
   "compatibilityLevel": "JAVA_8",
-  "package": "dev.toastmc.client.mixin.client",
+  "mixins": [
+    "MixinClientConnection",
+    "MixinClientPlayerEntity",
+    "MixinClientPlayerInteractionManager",
+    "MixinGameRenderer",
+    "MixinInGameHud2",
+    "MixinKeyboard",
+    "MixinMinecraftClient",
+    "MixinPlayerEntity",
+    "MixinServerScreen",
+    "MixinSharedConstants",
+    "MixinTitleScreen"
+  ],
   "client": [
-      "MixinClientConnection",
-      "MixinMinecraftClient"
   ],
   "injectors": {
     "defaultRequire": 1
