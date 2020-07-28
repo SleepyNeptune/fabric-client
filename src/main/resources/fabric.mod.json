@@ -6,7 +6,11 @@
   "name": "ToastClient",
   "description": "Like bread, but warmer.",
   "authors": [
-    "RemainingToast", "wnuke", "Qther"
+    "RemainingToast",
+    "fleebs",
+    "MorganAnkan",
+    "wnuke",
+    "Qther"
   ],
   "contact": {},
 
@@ -16,7 +20,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "dev.toastmc.client.ToastClient"
+      "toast.client.ToastClient"
     ]
   },
 
@@ -24,8 +28,8 @@
     "toastclient.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.9.0",
-    "minecraft": "1.16.x"
+    "fabricloader": ">=0.7.1",
+    "minecraft": "1.15.x"
   },
   "suggests": {
     "flamingo": "*"
