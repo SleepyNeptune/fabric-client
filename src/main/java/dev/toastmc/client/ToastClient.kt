@@ -30,6 +30,6 @@ class ToastClient : ModInitializer {
     }
 
     override fun onInitialize() {
-        COMMAND_MANAGER.initCommands()
+        COMMAND_MANAGER.init()
     }
 }

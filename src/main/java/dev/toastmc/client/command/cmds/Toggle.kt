@@ -19,7 +19,7 @@ class Toggle : Command(){
     override fun run(args: Array<String>) {
         if (mc.player == null) return
         if (args.isEmpty()) {
-            MessageUtil.defaultErrorMessage()
+            MessageUtil.sendRawMessage("ree")
             return
         }
         if(args.isNotEmpty()){

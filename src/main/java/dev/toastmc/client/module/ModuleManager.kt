@@ -2,9 +2,6 @@ package dev.toastmc.client.module
 
 import dev.toastmc.client.module.combat.AutoTotem
 import net.minecraft.client.MinecraftClient
-import java.io.Console
-import java.rmi.registry.LocateRegistry.getRegistry
-import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashSet
 
