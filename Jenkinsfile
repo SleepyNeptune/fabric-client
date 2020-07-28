@@ -1,10 +1,9 @@
-stage 'build'
-node{
-  if(isUnix()){
-  sh 'gradle build --info'
-
-  }
-  else{
-    bat 'gradle build --info'
+node {
+  stage('Gradle Build') {
+    if (isUnix()) {
+        sh './gradlew clean build'
+    } else {
+        bat 'gradlew.bat clean build'
+    }
   }
 }
