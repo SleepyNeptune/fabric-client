@@ -8,13 +8,18 @@ pipeline {
         sh './gradlew build'
       }
     }
-
-    stage('Discord') {
+    stage('Rename Jar') {
       steps {
-        discordSend(webhookURL: 'https://discordapp.com/api/webhooks/738156591232319600/f4Gw4bKlHG842uawnEF3TLvqTpSSZ5eOIUzbtZIHnhKyZXjqwaTRpmxuof1gFu0mibsV', successful: true)
+        bash 'for file in build/libs/*.jar ; do mv $file ${file//1\.0\.0/${env.BUILD_ID}} ; done'
       }
     }
+    stage('Discord') {
+      steps {
+        discordSend description: "Jenkins Pipeline Build", link: env.BUILD_URL, result: currentBuild.currentResult, title: JOB_NAME, webhookURL: credentials('toast-client-fabric')
 
+About
+      }
+    }
   }
   post {
     always {
