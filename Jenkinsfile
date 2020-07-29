@@ -10,7 +10,7 @@ pipeline {
     }
     stage('Rename Jar') {
       steps {
-        bash 'for file in build/libs/*.jar ; do mv $file ${file//1\.0\.0/${env.BUILD_ID}} ; done'
+        bash 'for file in build/libs/*.jar ; do mv $file ${file//1.0.0/${env.BUILD_ID}} ; done'
       }
     }
     stage('Discord') {
