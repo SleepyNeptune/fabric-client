@@ -10,7 +10,7 @@ pipeline {
     }
     stage('Rename Jar') {
       steps {
-        sh 'find . -name '*1.0.0*' -exec rename 's/1.0.0/100/' {} \;'
+        sh 'find . -name "*1.0.0*" -exec rename "s/1.0.0/100/" {} \;'
       }
     }
     stage('Discord') {
