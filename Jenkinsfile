@@ -10,7 +10,7 @@ pipeline {
     }
     stage('Rename Jar') {
       steps {
-        bash 'for file in build/libs/*.jar ; do mv $file ${file//1.0.0/${env.BUILD_ID}} ; done'
+        sh 'find . -name '*1.0.0*' -exec rename 's/1.0.0/100/' {} \;'
       }
     }
     stage('Discord') {
@@ -23,6 +23,5 @@ pipeline {
     always {
       archiveArtifacts(artifacts: 'build/libs/**/*.jar', fingerprint: true)
     }
-
   }
 }
