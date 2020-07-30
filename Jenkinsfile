@@ -36,7 +36,7 @@ pipeline {
             msg += "- [${filename}](${artifactUrl}${it.getFileName()})\n"
         }
 
-        withCredentials([string(credentialsId: 'discord-webhook', variable: 'discordWebhook')]) {
+        withCredentials([string(credentialsId: 'fabric-discord-webhook', variable: 'discordWebhook')]) {
             discordSend thumbnail: "http://wnuke.dev/radiation-symbol.png", successful: currentBuild.resultIsBetterOrEqualTo('SUCCESS'), description: "${msg}", link: env.BUILD_URL, title: "toastclient-fabric #${BUILD_NUMBER}", webhookURL: "${discordWebhook}"
         }
       }
