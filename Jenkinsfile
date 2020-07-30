@@ -16,8 +16,6 @@ pipeline {
     stage('Discord') {
       steps {
         discordSend description: "Jenkins Pipeline Build", link: env.BUILD_URL, result: currentBuild.currentResult, title: JOB_NAME, webhookURL: credentials('toast-client-fabric')
-
-About
       }
     }
   }
