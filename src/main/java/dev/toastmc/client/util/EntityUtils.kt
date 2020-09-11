@@ -60,15 +60,17 @@ object EntityUtils {
         if (mc.player == null) return false;
         val pos = mc.gameRenderer.camera.pos
         val yToPoint = atan(sqrt((point.x - pos.x) * (point.x - pos.x) + (point.z - pos.z) * (point.z - pos.z)) / pos.y - point.y) * (180.0 / Math.PI)
-        val yToLowSide = 180.0 + (mc.gameRenderer.camera!!.pitch - 320.0)
-        if (yToPoint !in yToLowSide..(yToLowSide + mc.options.fov + 90.0)) return false
+        val actualPitch = 90.0 - mc.gameRenderer.camera!!.pitch
+        val yToLowSide = 180.0 - actualPitch
+        if (yToPoint !in yToLowSide..(yToLowSide + mc.options.fov)) return false
 
+        println("yay!")
         val horizontalFov = mc.options.fov / mc.window.height * mc.window.width
         val xDistance = point.x - pos.x
         val zDistance = point.z - pos.z
         val zToPoint = atan(xDistance / zDistance) * (180.0 / Math.PI)
         // camera yaw confuses me
-        val actualYaw = mc.player!!.yaw + if (mc.player!!.yaw < -180.0) 360.0 else 0.0
+        val actualYaw = mc.player!!.yaw + if (mc.player!!.yaw < 0.0) 360.0 else 0.0
         val zToZSide = actualYaw - (horizontalFov / 2)
         val zToXSide = actualYaw + (horizontalFov / 2)
         return zToPoint in zToZSide..zToXSide
