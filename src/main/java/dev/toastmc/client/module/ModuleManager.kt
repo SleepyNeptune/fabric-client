@@ -39,12 +39,12 @@ class ModuleManager {
         register(
             AutoArmour(),   AntiHunger(),   AutoReplenish(),
             AutoTotem(),    AutoTool(),     AutoWalk(),
-            CrystalAura(),  ESP(),          FastStop(),
-            Flight(),       FullBright(),   HUD(),
-            Jesus(),        KillAura(),     NoFall(),
-            NoRender(),     PortalChat(),   SafeWalk(),
-            Sprint(),       Surround(),     Tracers(),
-            Velocity()
+            CrystalAura(),  ESP(),          EntityCulling(),
+            FastStop(),     Flight(),       FullBright(),
+            HUD(),          Jesus(),        KillAura(),
+            NoFall(),       NoRender(),     PortalChat(),
+            SafeWalk(),     Sprint(),       Surround(),
+            Tracers(),      Velocity()
         )
     }
 

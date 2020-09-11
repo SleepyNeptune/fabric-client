@@ -49,7 +49,7 @@ class ESP : Module(){
                 }
                 for (i in 0 until mc.world!!.entities!!.count()) {
                     val entity: Entity? = mc.world!!.entities!!.elementAtOrNull(i)
-                    if (entity == null || !entity.isAlive || entity == mc.player!! || entity == KillAura.target) continue
+                    if (entity == null || !entity.isAlive || entity == mc.player!! || entity == KillAura.target || (ToastClient.MODULE_MANAGER.getModuleByClass(EntityCulling::class)?.enabled == true && !EntityCulling.shouldNotCull.contains(entity))) continue
                     when {
                         renderPlayers && entity is PlayerEntity -> {
                             color(playerColor)
