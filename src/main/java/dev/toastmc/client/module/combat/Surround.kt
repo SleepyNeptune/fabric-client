@@ -5,6 +5,7 @@ import dev.toastmc.client.event.TickEvent
 import dev.toastmc.client.module.Category
 import dev.toastmc.client.module.Module
 import dev.toastmc.client.module.ModuleManifest
+import dev.toastmc.client.util.ItemUtil.getItemSlotInHotbar
 import dev.toastmc.client.util.WorldUtil.isReplaceable
 import dev.toastmc.client.util.WorldUtil.placeBlock
 import dev.toastmc.client.util.mc
@@ -292,20 +293,6 @@ class Surround : Module() {
             }
             return found
         }
-
-    private fun getItemSlotInHotbar(item: Item): Int {
-        if (mc.player == null) return -1
-        var slot = -1
-        for (i in 0 until PlayerInventory.getHotbarSize()) {
-            val currentItem = mc.player!!.inventory.getStack(i).item
-            if (!mc.player!!.inventory.getStack(i).isEmpty) {
-                if (item === currentItem) {
-                    slot = i
-                }
-            }
-        }
-        return slot
-    }
 
     private fun tryPlace(offX: Double, offY: Double, offZ: Double) {
         if (placements < blockspertick && isReplaceable(mc.world!!.getBlockState(BlockPos(offX, offY, offZ).add(mc.player!!.pos.getX(), mc.player!!.pos.getY(), mc.player!!.pos.getZ())).block)) {

@@ -29,6 +29,7 @@ class ModuleManager {
             ClickGUI(),
             CrystalAura(),
             ESP(),
+            Extinguish(),
             FastStop(),
             Flight(),
             FullBright(),

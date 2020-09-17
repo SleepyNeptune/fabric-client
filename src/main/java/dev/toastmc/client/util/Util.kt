@@ -34,6 +34,7 @@ import net.minecraft.entity.passive.GolemEntity
 import net.minecraft.entity.passive.VillagerEntity
 import net.minecraft.entity.passive.WolfEntity
 import net.minecraft.entity.player.PlayerEntity
+import net.minecraft.entity.player.PlayerInventory
 import net.minecraft.entity.vehicle.BoatEntity
 import net.minecraft.entity.vehicle.MinecartEntity
 import net.minecraft.item.*
@@ -823,6 +824,21 @@ object ItemUtil {
         }
         if (bestSlot != -1) equip(bestSlot)
     }
+
+    fun getItemSlotInHotbar(item: Item): Int {
+        if (mc.player == null) return -1
+        var slot = -1
+        for (i in 0 until PlayerInventory.getHotbarSize()) {
+            val currentItem = mc.player!!.inventory.getStack(i).item
+            if (!mc.player!!.inventory.getStack(i).isEmpty) {
+                if (item === currentItem) {
+                    slot = i
+                }
+            }
+        }
+        return slot
+    }
+
 
     fun equipBestWeapon(): Int {
         var bestSlot = -1
